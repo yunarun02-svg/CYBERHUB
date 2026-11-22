@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d12">
+  <title>CyberHub // Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wallpaper-shade"></div>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="CyberHub accueil">
+        <span class="brand-name">CYBER<span>HUB</span></span>
+      </a>
+      <button class="icon-button" id="settingsButton" aria-label="Ouvrir les paramètres" title="Paramètres">⚙</button>
+    </header>
+
+    <section class="hero">
+      <h1>WELCOME <span>BACK.</span></h1>
+      <form class="search" id="searchForm" role="search">
+        <span class="search-symbol">⌕</span>
+        <input id="searchInput" type="search" placeholder="Rechercher sur le web..." autocomplete="off" aria-label="Recherche Google">
+        <span class="search-hint">GOOGLE ↵</span>
+      </form>
+    </section>
+
+    <section class="links-section">
+      <div class="section-heading">
+        <h2>TES <span>RACCOURCIS</span></h2>
+        <button class="add-button" id="addButton"><span>＋</span> AJOUTER UN LIEN</button>
+      </div>
+      <div class="links-grid" id="linksGrid" aria-live="polite"></div>
+      <p class="empty-state" id="emptyState" hidden>AUCUN RACCOURCI // Ajoute ton premier site.</p>
+    </section>
+
+    <footer class="footer">
+      <span>CYBERHUB <span class="muted">/ PERSONAL STARTPAGE</span></span>
+      <span class="footer-right">BUILT FOR YOUR WORKFLOW <b>■</b></span>
+    </footer>
+  </main>
+
+  <dialog id="linkDialog" class="dialog">
+    <form id="linkForm" class="dialog-content">
+      <div class="dialog-top"><p class="eyebrow">// NEW SHORTCUT</p><button type="button" class="close-button" data-close="linkDialog" aria-label="Fermer">×</button></div>
+      <h3>AJOUTER UN <span>LIEN</span></h3>
+      <label for="siteName">NOM DU SITE</label>
+      <input id="siteName" maxlength="32" placeholder="Ex. YouTube" required>
+      <label for="siteUrl">ADRESSE URL</label>
+      <input id="siteUrl" type="text" placeholder="https://www.exemple.com" required>
+      <p class="form-error" id="linkError" role="alert"></p>
+      <div class="dialog-actions">
+        <button type="button" class="secondary-button" data-close="linkDialog">ANNULER</button>
+        <button type="submit" class="primary-button">ENREGISTRER ↗</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="settingsDialog" class="dialog">
+    <div class="dialog-content">
+      <div class="dialog-top"><p class="eyebrow">// CONFIGURATION</p><button type="button" class="close-button" data-close="settingsDialog" aria-label="Fermer">×</button></div>
+      <h3>PARAMÈTRES <span>SYSTÈME</span></h3>
+      <div class="setting-block">
+        <div><strong>FONDS D'ÉCRAN</strong><p>Ajoute une ou plusieurs images : une est choisie au hasard à chaque ouverture ou actualisation de la page.</p></div>
+        <label class="upload-button" for="wallpaperInput">AJOUTER DES IMAGES</label>
+        <input id="wallpaperInput" type="file" accept="image/*" multiple hidden>
+        <div class="wallpaper-list" id="wallpaperList"></div>
+        <button id="resetWallpaper" class="text-button" type="button">SUPPRIMER TOUTES LES IMAGES</button>
+      </div>
+      <div class="setting-block">
+        <div><strong>COULEUR D'ACCENT</strong><p>Remplace le vert par la couleur de ton choix (code hexadécimal).</p></div>
+        <div class="color-row">
+          <input id="accentPicker" type="color" value="#53f5b5" aria-label="Choisir une couleur">
+          <input id="accentHex" type="text" maxlength="7" value="#53F5B5" placeholder="#53F5B5" spellcheck="false" autocomplete="off" aria-label="Code couleur hexadécimal">
+        </div>
+        <button id="resetAccent" class="text-button" type="button">RÉINITIALISER LA COULEUR</button>
+      </div>
+      <div class="setting-note"><span class="status-dot"></span> Tes raccourcis, ton fond et ta couleur sont sauvegardés dans ce navigateur.</div>
+      <div class="dialog-actions"><button type="button" class="primary-button" data-close="settingsDialog">TERMINÉ</button></div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
