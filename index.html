@@ -4,83 +4,159 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080d12">
-  <title>CyberHub // Home</title>
+  <meta name="description" content="CyberHub, une page d'accueil personnalisable pour retrouver tes sites préférés.">
+  <title>CyberHub — Accueil</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wallpaper-shade"></div>
+  <div class="wallpaper-shade" aria-hidden="true"></div>
+
   <main class="shell">
     <header class="topbar">
-      <a class="brand" href="#" aria-label="CyberHub accueil">
+      <a class="brand" href="#" aria-label="CyberHub, accueil" data-i18n-aria-label="brand.aria">
         <span class="brand-name">CYBER<span>HUB</span></span>
       </a>
-      <button class="icon-button" id="settingsButton" aria-label="Ouvrir les paramètres" title="Paramètres">⚙</button>
+      <button class="icon-button" id="settingsButton" type="button"
+        aria-label="Ouvrir les paramètres" title="Paramètres"
+        data-i18n-aria-label="settings.open" data-i18n-title="settings.openTitle">⚙</button>
     </header>
 
     <section class="hero">
-      <h1>WELCOME <span>BACK.</span></h1>
+      <p class="eyebrow" data-i18n="hero.eyebrow">TON ESPACE PERSONNEL</p>
+      <h1 data-i18n-html="hero.title">BON <span>RETOUR.</span></h1>
       <form class="search" id="searchForm" role="search">
-        <span class="search-symbol">⌕</span>
-        <input id="searchInput" type="search" placeholder="Rechercher sur le web..." autocomplete="off" aria-label="Recherche Google">
+        <span class="search-symbol" aria-hidden="true">⌕</span>
+        <input id="searchInput" type="search" placeholder="Rechercher sur le Web..."
+          autocomplete="off" aria-label="Recherche Google"
+          data-i18n-placeholder="search.placeholder" data-i18n-aria-label="search.aria">
         <span class="search-hint">GOOGLE ↵</span>
       </form>
     </section>
 
-    <section class="links-section">
+    <section class="links-section" aria-labelledby="linksTitle">
       <div class="section-heading">
-        <h2>TES <span>RACCOURCIS</span></h2>
-        <button class="add-button" id="addButton"><span>＋</span> AJOUTER UN LIEN</button>
+        <h2 id="linksTitle" data-i18n-html="links.title">MES <span>RACCOURCIS</span></h2>
+        <button class="add-button" id="addButton" type="button" data-i18n-html="links.add">
+          <span>＋</span> AJOUTER UN LIEN
+        </button>
       </div>
       <div class="links-grid" id="linksGrid" aria-live="polite"></div>
-      <p class="empty-state" id="emptyState" hidden>AUCUN RACCOURCI // Ajoute ton premier site.</p>
+      <p class="empty-state" id="emptyState" data-i18n="links.empty" hidden>
+        Aucun raccourci pour le moment. Ajoute ton premier site.
+      </p>
     </section>
 
     <footer class="footer">
-      <span>CYBERHUB <span class="muted">/ PERSONAL STARTPAGE</span></span>
-      <span class="footer-right">BUILT FOR YOUR WORKFLOW <b>■</b></span>
+      <span data-i18n-html="footer.left">CYBERHUB <span class="muted">/ PAGE D'ACCUEIL</span></span>
+      <span class="footer-right" data-i18n-html="footer.right">FAIT POUR TOI <b>■</b></span>
     </footer>
   </main>
 
   <dialog id="linkDialog" class="dialog">
     <form id="linkForm" class="dialog-content">
-      <div class="dialog-top"><p class="eyebrow">// NEW SHORTCUT</p><button type="button" class="close-button" data-close="linkDialog" aria-label="Fermer">×</button></div>
-      <h3>AJOUTER UN <span>LIEN</span></h3>
-      <label for="siteName">NOM DU SITE</label>
-      <input id="siteName" maxlength="32" placeholder="Ex. YouTube" required>
-      <label for="siteUrl">ADRESSE URL</label>
-      <input id="siteUrl" type="text" placeholder="https://www.exemple.com" required>
+      <div class="dialog-top">
+        <p class="eyebrow" data-i18n="linkDialog.eyebrow">// NOUVEAU RACCOURCI</p>
+        <button type="button" class="close-button" data-close="linkDialog"
+          aria-label="Fermer" data-i18n-aria-label="common.close">×</button>
+      </div>
+      <h3 data-i18n-html="linkDialog.title">AJOUTER UN <span>LIEN</span></h3>
+      <label for="siteName" data-i18n="linkDialog.nameLabel">NOM DU SITE</label>
+      <input id="siteName" maxlength="32" placeholder="Ex. YouTube"
+        data-i18n-placeholder="linkDialog.namePlaceholder" required>
+      <label for="siteUrl" data-i18n="linkDialog.urlLabel">ADRESSE DU SITE</label>
+      <input id="siteUrl" type="text" placeholder="https://www.exemple.com"
+        data-i18n-placeholder="linkDialog.urlPlaceholder" required>
       <p class="form-error" id="linkError" role="alert"></p>
       <div class="dialog-actions">
-        <button type="button" class="secondary-button" data-close="linkDialog">ANNULER</button>
-        <button type="submit" class="primary-button">ENREGISTRER ↗</button>
+        <button type="button" class="secondary-button" data-close="linkDialog"
+          data-i18n="linkDialog.cancel">ANNULER</button>
+        <button type="submit" class="primary-button"
+          data-i18n="linkDialog.save">ENREGISTRER ↗</button>
       </div>
     </form>
   </dialog>
 
   <dialog id="settingsDialog" class="dialog">
     <div class="dialog-content">
-      <div class="dialog-top"><p class="eyebrow">// CONFIGURATION</p><button type="button" class="close-button" data-close="settingsDialog" aria-label="Fermer">×</button></div>
-      <h3>PARAMÈTRES <span>SYSTÈME</span></h3>
+      <div class="dialog-top">
+        <p class="eyebrow" data-i18n="settings.eyebrow">// PARAMÈTRES</p>
+        <button type="button" class="close-button" data-close="settingsDialog"
+          aria-label="Fermer" data-i18n-aria-label="common.close">×</button>
+      </div>
+      <h3 data-i18n-html="settings.title">MES <span>PRÉFÉRENCES</span></h3>
+
       <div class="setting-block">
-        <div><strong>FONDS D'ÉCRAN</strong><p>Ajoute une ou plusieurs images : une est choisie au hasard à chaque ouverture ou actualisation de la page.</p></div>
-        <label class="upload-button" for="wallpaperInput">AJOUTER DES IMAGES</label>
+        <div>
+          <strong data-i18n="settings.language.title">LANGUE</strong>
+          <p data-i18n="settings.language.desc">Choisis la langue de l'interface.</p>
+        </div>
+        <select id="languageSelect" aria-label="Langue"
+          data-i18n-aria-label="settings.language.aria">
+          <option value="en">English</option>
+          <option value="fr" selected>Français</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
+
+      <div class="setting-block">
+        <div>
+          <strong data-i18n="settings.wallpapers.title">FONDS D'ÉCRAN</strong>
+          <p data-i18n="settings.wallpapers.desc">Ajoute tes images préférées. Un fond sera choisi à chaque ouverture de la page. Taille maximale : 5 Mo par image.</p>
+        </div>
+        <label class="upload-button" for="wallpaperInput"
+          data-i18n="settings.wallpapers.choose">CHOISIR DES IMAGES</label>
         <input id="wallpaperInput" type="file" accept="image/*" multiple hidden>
         <div class="wallpaper-list" id="wallpaperList"></div>
-        <button id="resetWallpaper" class="text-button" type="button">SUPPRIMER TOUTES LES IMAGES</button>
+        <button id="resetWallpaper" class="text-button" type="button"
+          data-i18n="settings.wallpapers.deleteAll">SUPPRIMER TOUS LES FONDS</button>
       </div>
+
       <div class="setting-block">
-        <div><strong>COULEUR D'ACCENT</strong><p>Remplace le vert par la couleur de ton choix (code hexadécimal).</p></div>
-        <div class="color-row">
-          <input id="accentPicker" type="color" value="#53f5b5" aria-label="Choisir une couleur">
-          <input id="accentHex" type="text" maxlength="7" value="#53F5B5" placeholder="#53F5B5" spellcheck="false" autocomplete="off" aria-label="Code couleur hexadécimal">
+        <div>
+          <strong data-i18n="settings.accent.title">COULEUR PRINCIPALE</strong>
+          <p data-i18n="settings.accent.desc">Choisis la couleur des éléments mis en évidence.</p>
         </div>
-        <button id="resetAccent" class="text-button" type="button">RÉINITIALISER LA COULEUR</button>
+        <div class="color-row">
+          <input id="accentPicker" type="color" value="#53f5b5" aria-label="Choisir une couleur"
+            data-i18n-aria-label="settings.accent.pickerAria">
+          <input id="accentHex" type="text" maxlength="7" value="#53F5B5"
+            placeholder="#53F5B5" spellcheck="false" autocomplete="off"
+            aria-label="Code couleur hexadécimal"
+            data-i18n-aria-label="settings.accent.hexAria">
+        </div>
+        <button id="resetAccent" class="text-button" type="button"
+          data-i18n="settings.accent.reset">RÉTABLIR LA COULEUR PAR DÉFAUT</button>
       </div>
-      <div class="setting-note"><span class="status-dot"></span> Tes raccourcis, ton fond et ta couleur sont sauvegardés dans ce navigateur.</div>
-      <div class="dialog-actions"><button type="button" class="primary-button" data-close="settingsDialog">TERMINÉ</button></div>
+
+      <div class="setting-block">
+        <div>
+          <strong data-i18n="settings.backup.title">SAUVEGARDE</strong>
+          <p data-i18n="settings.backup.desc">Exporte tes raccourcis et réglages dans un fichier, ou restaure-les depuis une sauvegarde.</p>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" id="backupWallpapers" checked>
+          <span data-i18n="settings.backup.includeWallpapers">Inclure les fonds d'écran</span>
+        </label>
+        <div class="backup-actions">
+          <button id="exportButton" type="button" class="upload-button"
+            data-i18n="settings.backup.export">EXPORTER</button>
+          <label class="upload-button" for="importInput"
+            data-i18n="settings.backup.import">IMPORTER</label>
+          <input id="importInput" type="file" accept="application/json,.json" hidden>
+        </div>
+      </div>
+
+      <p class="setting-note">
+        <span class="status-dot"></span>
+        <span data-i18n="settings.note">Tes raccourcis, tes fonds, ta couleur et ta langue sont enregistrés dans ce navigateur.</span>
+      </p>
+      <div class="dialog-actions">
+        <button type="button" class="primary-button" data-close="settingsDialog"
+          data-i18n="settings.closeButton">FERMER</button>
+      </div>
     </div>
   </dialog>
 
-  <script src="script.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

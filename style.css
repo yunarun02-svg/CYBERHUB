@@ -10,7 +10,7 @@
   --on-accent: #06110e;
   --cyan: #55dff5;
   --text: #ffffff;
-  --muted: #ffffff;
+  --muted: #9bb1ac;
   --danger: #ff6585;
 }
 * { box-sizing: border-box; }
@@ -121,3 +121,13 @@ body.is-dragging, body.is-dragging * { cursor: grabbing !important; user-select:
 .wallpaper-thumb button { position: absolute; top: 2px; right: 2px; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: rgba(0,0,0,.72); color: var(--text); font-size: 14px; line-height: 1; cursor: pointer; }
 .wallpaper-thumb button:hover { background: var(--danger); color: #fff; }
 .wallpaper-count { margin: 6px 0 0; }
+
+/* Choix de la langue */
+.dialog select { width: 100%; height: 42px; margin: 10px 0 6px; padding: 0 12px; outline: 0; border: 1px solid rgba(104,160,151,.3); background: #071016; color: var(--text); color-scheme: dark; font: 11px 'IBM Plex Mono', monospace; cursor: pointer; }
+.dialog select:focus { border-color: var(--green); }
+
+/* Sauvegarde */
+.backup-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 10px 0 4px; }
+.backup-actions .upload-button { margin: 0; }
+.dialog label.check-row { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; color: var(--muted); font-size: 10px; letter-spacing: 0; }
+.dialog .check-row input { width: auto; height: auto; }
